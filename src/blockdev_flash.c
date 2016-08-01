@@ -34,7 +34,7 @@ int BlockDevWrite(uint32_t dwAddress, uint8_t * pbBuf) {
         debug("Modifying directory entry %d", ((BOOT_SECT_SIZE + FAT_SIZE +
                     ROOT_DIR_SIZE) - offset) % DIRECTORY_ENTRY_SIZE);
 
-        for(uint32_t i = 0; i < BLOCKSIZE; i++) {
+        for(uint32_t i = 0; i < DIRECTORY_ENTRY_SIZE; i++) {
             ((uint8_t*)&DIRECTORY_ENTRIES)[(offset + i) - BOOT_SECT_SIZE -
                     FAT_SIZE] = pbBuf[i];
         }
